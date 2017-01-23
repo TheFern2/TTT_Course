@@ -1,27 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TTT_Manager : MonoBehaviour
-{
+public class TTT_Manager : MonoBehaviour {
 
-	BoardCreator BC;
+	private BoardCreator BC;
 
-	void Awake ()
-	{
-		
-	}
+    public bool cleanBoard;
+    public static int playersCount = 2;
+    public static int currentPlayer;
 
-	// Use this for initialization
+    public static TTT_Manager instance = null;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        } else if(instance != this)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+    // Use this for initialization
 	void Start ()
 	{
-		BC = GetComponent<BoardCreator> ();
-		BC.generateMap (3, 3);
+	    BC = GetComponent<BoardCreator>();
+        BC.generateMap();
 	}
 	
 	// Update is called once per frame
-	void Update ()
-	{
+	void Update () {
 	
 	}
-		
 }

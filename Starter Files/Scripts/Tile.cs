@@ -3,23 +3,15 @@ using System.Collections;
 
 public class Tile : MonoBehaviour
 {
-	public Vector2 gridPosition = Vector2.zero;
+    public Vector2 gridPosition = Vector2.zero;
 
-	// Use this for initialization
-	void Start ()
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
-	}
+    public GameObject player1;
+    public GameObject player2;
 
-	void OnMouseDown ()
-	{
-		Debug.Log ("My position is (" + gridPosition.x + "," + gridPosition.y + ")");
-		BoardCreator.instance.movePlayer (this);
-	}
+    public int playerIndex;
+
+    void OnMouseDown()
+    {
+        Debug.Log("My position is (" + gridPosition.x + "," + gridPosition.y + ")");
+    }
 }
